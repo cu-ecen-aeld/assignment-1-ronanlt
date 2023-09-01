@@ -19,9 +19,9 @@ if [ ! -d "$FILESDIR" ]
 	exit 1
 fi
 
-NB=$( tree  "$FILESDIR" -ls | wc -l )
-NBDIR=$( tree -d "$FILESDIR" -ls | wc -l )
-((NBFILES= NB - NBDIR))
+NBFILES=$( find  "$FILESDIR" -type f -name "*.txt"  | wc -l )
+#NBDIR=$( tree -d "$FILESDIR" -ls | wc -l )
+#((NBFILES= NB - NBDIR))
 NBLINES=$( grep -Ir "$SEARCHSTR" $FILESDIR | wc -l )  
 
 #echo $NB
